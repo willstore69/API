@@ -1,0 +1,81 @@
+# ADD SSH
+curl -sS -X POST http://157.245.198.162:5069/add-ssh \
+-H "X-API-KEY: your_api_key" \
+-H "Content-Type: application/json" \
+-d '{"user":"your_user_vpn", "pass":"your_exp_user", "exp":"30", "limit_ip":"0"}' | jq -r '.stdout'
+
+# RENEW SSH
+curl -sS -X POST http://157.245.198.162:5069/renew-ssh \
+-H "X-API-KEY: your_api_key" \
+-H "Content-Type: application/json" \
+-d '{"user":"your_user_vpn", "exp":"your_exp_user"}' | jq -r '.stdout'
+
+# DELETE SSH
+curl -sS -X DELETE http://157.245.198.162:5069/del-ssh \
+-H "Content-Type: application/json" \
+-H "X-API-KEY: your_api_key" \
+-d '{"user": "will"}' | jq -r '.stdout'
+
+# CEK SSH LOGIN
+curl -sS -X GET http://157.245.198.162:5069/cek-ssh \
+-H "Content-Type: application/json" \
+-H "X-API-KEY: your_api_key" | jq -r '.stdout'
+
+# ADD VMESS WS
+curl -sS -X POST http://157.245.198.162:5069/add-vmessws \
+-H "X-API-KEY: your_api_key" \
+-H "Content-Type: application/json" \
+-d '{"user":"your_user_vpn", "exp":"your_exp_user", "limit_ip":"0"}' | jq -r '.stdout'
+
+# RENEW VMESS WS
+curl -sS -X POST http://157.245.198.162:5069/renew-vmessws \
+-H "X-API-KEY: your_api_key" \
+-H "Content-Type: application/json" \
+-d '{"user":"your_user_vpn", "exp":"your_exp_user"}' | jq -r '.stdout'
+
+# DELETE VMESS WS
+curl -sS -X DELETE http://157.245.198.162:5069/del-vmessws \
+-H "Content-Type: application/json" \
+-H "X-API-KEY: your_api_key" \
+-d '{"user": "your_user_vpn"}' | jq -r '.stdout'
+
+# ADD VLESS WS
+curl -sS -X POST http://157.245.198.162:5069/add-vlessws \
+-H "X-API-KEY: your_api_key" \
+-H "Content-Type: application/json" \
+-d '{"user":"your_user_vpn", "exp":"your_exp_user", "limit_ip":"0"}' | jq -r '.stdout'
+
+# RENEW VLESS WS
+curl -sS -X POST http://157.245.198.162:5069/renew-vlessws \
+-H "X-API-KEY: your_api_key" \
+-H "Content-Type: application/json" \
+-d '{"user":"your_user_vpn", "exp":"your_exp_user"}' | jq -r '.stdout'
+
+# DELETE VLESS WS
+curl -sS -X DELETE http://157.245.198.162:5069/del-vlessws \
+-H "Content-Type: application/json" \
+-H "X-API-KEY: your_api_key" \
+-d '{"user": "your_user_vpn"}' | jq -r '.stdout'
+
+# ADD TROJAN WS
+curl -sS -X POST http://157.245.198.162:5069/add-trojanws \
+-H "X-API-KEY: your_api_key" \
+-H "Content-Type: application/json" \
+-d '{"user":"your_user_vpn", "exp":"your_exp_user", "limit_ip":"0"}' | jq -r '.stdout'
+
+# RENEW TROJAN WS
+curl -sS -X POST http://157.245.198.162:5069/renew-trojanws \
+-H "X-API-KEY: your_api_key" \
+-H "Content-Type: application/json" \
+-d '{"user":"your_user_vpn", "exp":"your_exp_user"}' | jq -r '.stdout'
+
+# DELETE TROJAN WS
+curl -sS -X DELETE http://157.245.198.162:5069/del-trojanws \
+-H "Content-Type: application/json" \
+-H "X-API-KEY: your_api_key" \
+-d '{"user": "your_user_vpn"}' | jq -r '.stdout'
+
+# CEK XRAY LOGIN
+curl -sS -X GET http://157.245.198.162:5069/cek-xray \
+-H "Content-Type: application/json" \
+-H "X-API-KEY: your_api_key" | jq -r '.stdout'
