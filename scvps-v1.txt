@@ -2,7 +2,7 @@
 curl -sS -X POST http://your_ip_or_domain:5069/add-ssh \
 -H "X-API-KEY: your_api_key" \
 -H "Content-Type: application/json" \
--d '{"user":"your_user_vpn", "pass":"your_exp_user", "exp":"30", "limit_ip":"0"}' | jq -r '.stdout'
+-d '{"user":"your_user_vpn", "pass":"your_password_user", "exp":"your_exp_user", "limit_ip":"0"}' | jq -r '.stdout'
 
 # RENEW SSH
 curl -sS -X POST http://your_ip_or_domain:5069/renew-ssh \
