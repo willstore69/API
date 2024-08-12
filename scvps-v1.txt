@@ -4,6 +4,12 @@ curl -sS -X POST http://your_ip_or_domain:5069/add-ssh \
 -H "Content-Type: application/json" \
 -d '{"user":"your_user_vpn", "pass":"your_password_user", "exp":"your_exp_user", "limit_ip":"0"}' | jq -r '.stdout'
 
+# TRIAL SSH
+curl -sS -X POST http://your_ip_or_domain:5069/add-ssh \
+-H "X-API-KEY: your_api_key" \
+-H "Content-Type: application/json" \
+-d '{"exp":"your_exp_user", "limit_ip":"0"}' | jq -r '.stdout'
+
 # RENEW SSH
 curl -sS -X POST http://your_ip_or_domain:5069/renew-ssh \
 -H "X-API-KEY: your_api_key" \
@@ -27,6 +33,12 @@ curl -sS -X POST http://your_ip_or_domain:5069/add-vmessws \
 -H "Content-Type: application/json" \
 -d '{"user":"your_user_vpn", "exp":"your_exp_user", "limit_ip":"0"}' | jq -r '.stdout'
 
+# TRIAL VMESS WS
+curl -sS -X POST http://your_ip_or_domain:5069/trial-vmessws \
+-H "X-API-KEY: your_api_key" \
+-H "Content-Type: application/json" \
+-d '{"exp":"your_exp_user", "limit_ip":"0"}' | jq -r '.stdout'
+
 # RENEW VMESS WS
 curl -sS -X POST http://your_ip_or_domain:5069/renew-vmessws \
 -H "X-API-KEY: your_api_key" \
@@ -45,6 +57,12 @@ curl -sS -X POST http://your_ip_or_domain:5069/add-vlessws \
 -H "Content-Type: application/json" \
 -d '{"user":"your_user_vpn", "exp":"your_exp_user", "limit_ip":"0"}' | jq -r '.stdout'
 
+# TRIAL VLESS WS
+curl -sS -X POST http://your_ip_or_domain:5069/trial-vlessws \
+-H "X-API-KEY: your_api_key" \
+-H "Content-Type: application/json" \
+-d '{"exp":"your_exp_user", "limit_ip":"0"}' | jq -r '.stdout'
+
 # RENEW VLESS WS
 curl -sS -X POST http://your_ip_or_domain:5069/renew-vlessws \
 -H "X-API-KEY: your_api_key" \
@@ -62,6 +80,12 @@ curl -sS -X POST http://your_ip_or_domain:5069/add-trojanws \
 -H "X-API-KEY: your_api_key" \
 -H "Content-Type: application/json" \
 -d '{"user":"your_user_vpn", "exp":"your_exp_user", "limit_ip":"0"}' | jq -r '.stdout'
+
+# TRIAL TROJAN WS
+curl -sS -X POST http://your_ip_or_domain:5069/trial-trojanws \
+-H "X-API-KEY: your_api_key" \
+-H "Content-Type: application/json" \
+-d '{"exp":"your_exp_user", "limit_ip":"0"}' | jq -r '.stdout'
 
 # RENEW TROJAN WS
 curl -sS -X POST http://your_ip_or_domain:5069/renew-trojanws \
