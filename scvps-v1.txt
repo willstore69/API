@@ -51,6 +51,12 @@ curl -sS -X DELETE http://your_ip_or_domain:5069/del-vmessws \
 -H "X-API-KEY: your_api_key" \
 -d '{"user": "your_user_vpn"}' | jq -r '.stdout'
 
+# DETAIL VMESS WS
+curl -sS -X GET http://your_ip_or_domain:5069/detail-vmessws \
+-H "Content-Type: application/json" \
+-H "X-API-KEY: your_api_key" \
+-d '{"user": "your_user_vpn"}' | jq -r '.stdout'
+
 # ADD VLESS WS
 curl -sS -X POST http://your_ip_or_domain:5069/add-vlessws \
 -H "X-API-KEY: your_api_key" \
@@ -75,6 +81,12 @@ curl -sS -X DELETE http://your_ip_or_domain:5069/del-vlessws \
 -H "X-API-KEY: your_api_key" \
 -d '{"user": "your_user_vpn"}' | jq -r '.stdout'
 
+# DETAIL VLESS WS
+curl -sS -X GET http://your_ip_or_domain:5069/detail-vlessws \
+-H "Content-Type: application/json" \
+-H "X-API-KEY: your_api_key" \
+-d '{"user": "your_user_vpn"}' | jq -r '.stdout'
+
 # ADD TROJAN WS
 curl -sS -X POST http://your_ip_or_domain:5069/add-trojanws \
 -H "X-API-KEY: your_api_key" \
@@ -95,6 +107,12 @@ curl -sS -X POST http://your_ip_or_domain:5069/renew-trojanws \
 
 # DELETE TROJAN WS
 curl -sS -X DELETE http://your_ip_or_domain:5069/del-trojanws \
+-H "Content-Type: application/json" \
+-H "X-API-KEY: your_api_key" \
+-d '{"user": "your_user_vpn"}' | jq -r '.stdout'
+
+# DETAIL TROJAN WS
+curl -sS -X GET http://your_ip_or_domain:5069/detail-trojanws \
 -H "Content-Type: application/json" \
 -H "X-API-KEY: your_api_key" \
 -d '{"user": "your_user_vpn"}' | jq -r '.stdout'
