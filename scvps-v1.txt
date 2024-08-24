@@ -20,6 +20,24 @@ curl -sS -X POST http://your_ip_or_domain:5069/renew-ssh \
 curl -sS -X DELETE http://your_ip_or_domain:5069/del-ssh \
 -H "Content-Type: application/json" \
 -H "X-API-KEY: your_api_key" \
+-d '{"user": "your_user_vpn"}' | jq -r '.stdout'
+
+# ADD L2TP
+curl -sS -X POST http://your_ip_or_domain:5069/add-l2tp \
+-H "X-API-KEY: your_api_key" \
+-H "Content-Type: application/json" \
+-d '{"user":"your_user_vpn", "pass":"your_password_user", "exp":"your_exp_user"}' | jq -r '.stdout'
+
+# RENEW L2TP
+curl -sS -X POST http://your_ip_or_domain:5069/renew-l2tp \
+-H "X-API-KEY: your_api_key" \
+-H "Content-Type: application/json" \
+-d '{"user":"your_user_vpn", "exp":"your_exp_user"}' | jq -r '.stdout'
+
+# DELETE L2TP
+curl -sS -X DELETE http://your_ip_or_domain:5069/del-l2tp \
+-H "Content-Type: application/json" \
+-H "X-API-KEY: your_api_key" \
 -d '{"user": "will"}' | jq -r '.stdout'
 
 # CEK SSH LOGIN
@@ -113,6 +131,96 @@ curl -sS -X DELETE http://your_ip_or_domain:5069/del-trojanws \
 
 # DETAIL TROJAN WS
 curl -sS -X GET http://your_ip_or_domain:5069/detail-trojanws \
+-H "Content-Type: application/json" \
+-H "X-API-KEY: your_api_key" \
+-d '{"user": "your_user_vpn"}' | jq -r '.stdout'
+
+# ADD VMESS GRPC
+curl -sS -X POST http://your_ip_or_domain:5069/add-vmessgrpc \
+-H "X-API-KEY: your_api_key" \
+-H "Content-Type: application/json" \
+-d '{"user":"your_user_vpn", "exp":"your_exp_user", "limit_ip":"0"}' | jq -r '.stdout'
+
+# TRIAL VMESS GRPC
+curl -sS -X POST http://your_ip_or_domain:5069/trial-vmessgrpc \
+-H "X-API-KEY: your_api_key" \
+-H "Content-Type: application/json" \
+-d '{"exp":"your_exp_user", "limit_ip":"0"}' | jq -r '.stdout'
+
+# RENEW VMESS GRPC
+curl -sS -X POST http://your_ip_or_domain:5069/renew-vmessgrpc \
+-H "X-API-KEY: your_api_key" \
+-H "Content-Type: application/json" \
+-d '{"user":"your_user_vpn", "exp":"your_exp_user"}' | jq -r '.stdout'
+
+# DELETE VMESS GRPC
+curl -sS -X DELETE http://your_ip_or_domain:5069/del-vmessgrpc \
+-H "Content-Type: application/json" \
+-H "X-API-KEY: your_api_key" \
+-d '{"user": "your_user_vpn"}' | jq -r '.stdout'
+
+# DETAIL VMESS GRPC
+curl -sS -X GET http://your_ip_or_domain:5069/detail-vmessgrpc \
+-H "Content-Type: application/json" \
+-H "X-API-KEY: your_api_key" \
+-d '{"user": "your_user_vpn"}' | jq -r '.stdout'
+
+# ADD VLESS GRPC
+curl -sS -X POST http://your_ip_or_domain:5069/add-vlessgrpc \
+-H "X-API-KEY: your_api_key" \
+-H "Content-Type: application/json" \
+-d '{"user":"your_user_vpn", "exp":"your_exp_user", "limit_ip":"0"}' | jq -r '.stdout'
+
+# TRIAL VLESS GRPC
+curl -sS -X POST http://your_ip_or_domain:5069/trial-vlessgrpc \
+-H "X-API-KEY: your_api_key" \
+-H "Content-Type: application/json" \
+-d '{"exp":"your_exp_user", "limit_ip":"0"}' | jq -r '.stdout'
+
+# RENEW VLESS GRPC
+curl -sS -X POST http://your_ip_or_domain:5069/renew-vlessgrpc \
+-H "X-API-KEY: your_api_key" \
+-H "Content-Type: application/json" \
+-d '{"user":"your_user_vpn", "exp":"your_exp_user"}' | jq -r '.stdout'
+
+# DELETE VLESS GRPC
+curl -sS -X DELETE http://your_ip_or_domain:5069/del-vlessgrpc \
+-H "Content-Type: application/json" \
+-H "X-API-KEY: your_api_key" \
+-d '{"user": "your_user_vpn"}' | jq -r '.stdout'
+
+# DETAIL VLESS GRPC
+curl -sS -X GET http://your_ip_or_domain:5069/detail-vlessgrpc \
+-H "Content-Type: application/json" \
+-H "X-API-KEY: your_api_key" \
+-d '{"user": "your_user_vpn"}' | jq -r '.stdout'
+
+# ADD TROJAN GRPC
+curl -sS -X POST http://your_ip_or_domain:5069/add-trojangrpc \
+-H "X-API-KEY: your_api_key" \
+-H "Content-Type: application/json" \
+-d '{"user":"your_user_vpn", "exp":"your_exp_user", "limit_ip":"0"}' | jq -r '.stdout'
+
+# TRIAL TROJAN GRPC
+curl -sS -X POST http://your_ip_or_domain:5069/trial-trojangrpc \
+-H "X-API-KEY: your_api_key" \
+-H "Content-Type: application/json" \
+-d '{"exp":"your_exp_user", "limit_ip":"0"}' | jq -r '.stdout'
+
+# RENEW TROJAN GRPC
+curl -sS -X POST http://your_ip_or_domain:5069/renew-trojangrpc \
+-H "X-API-KEY: your_api_key" \
+-H "Content-Type: application/json" \
+-d '{"user":"your_user_vpn", "exp":"your_exp_user"}' | jq -r '.stdout'
+
+# DELETE TROJAN GRPC
+curl -sS -X DELETE http://your_ip_or_domain:5069/del-trojangrpc \
+-H "Content-Type: application/json" \
+-H "X-API-KEY: your_api_key" \
+-d '{"user": "your_user_vpn"}' | jq -r '.stdout'
+
+# DETAIL TROJAN GRPC
+curl -sS -X GET http://your_ip_or_domain:5069/detail-trojangrpc \
 -H "Content-Type: application/json" \
 -H "X-API-KEY: your_api_key" \
 -d '{"user": "your_user_vpn"}' | jq -r '.stdout'
