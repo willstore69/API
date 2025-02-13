@@ -89,151 +89,151 @@ curl -X GET "http://server_ip_or_domain/user_legend/detail-vmessws" \
 # Menambahkan VLESS WS
 curl -X POST "http://server_ip_or_domain/user_legend/add-vlessws" \
 -H "Content-Type: application/json" \
--H "x-api-key: your_api_key" \
+-H "x-api-key: YOUR_API_KEY" \
 -d '{"user":"INPUT_USER_HERE","exp":"30","limit_quota":"100GB","limit_ip":"1"}' | jq -r '.detail.stdout // .stdout'
 
 # Trial VLESS WS
 curl -X POST "http://server_ip_or_domain/user_legend/trial-vlessws" \
 -H "Content-Type: application/json" \
--H "x-api-key: your_api_key" \
+-H "x-api-key: YOUR_API_KEY" \
 -d '{"exp":"1","limit_ip":"1"}' | jq -r '.detail.stdout // .stdout'
 
 # Menghapus VLESS WS
 curl -X DELETE "http://server_ip_or_domain/user_legend/del-vlessws" \
 -H "Content-Type: application/json" \
--H "x-api-key: your_api_key" \
+-H "x-api-key: YOUR_API_KEY" \
 -d '{"user":"INPUT_USER_HERE"}' | jq -r '.detail.stdout // .stdout'
 
 # Memperpanjang VLESS WS
 curl -X POST "http://server_ip_or_domain/user_legend/renew-vlessws" \
 -H "Content-Type: application/json" \
--H "x-api-key: your_api_key" \
+-H "x-api-key: YOUR_API_KEY" \
 -d '{"user":"INPUT_USER_HERE","exp":"30"}' | jq -r '.detail.stdout // .stdout'
 
 # Mendapatkan detail VLESS WS
 curl -X GET "http://server_ip_or_domain/user_legend/detail-vlessws" \
 -H "Content-Type: application/json" \
--H "x-api-key: your_api_key" \
+-H "x-api-key: YOUR_API_KEY" \
 -d '{"user":"INPUT_USER_HERE"}' | jq -r '.detail.stdout // .stdout'
 
 # Menambahkan Trojan WS
 curl -X POST "http://server_ip_or_domain/user_legend/add-trojanws" \
 -H "Content-Type: application/json" \
--H "x-api-key: your_api_key" \
+-H "x-api-key: YOUR_API_KEY" \
 -d '{"user":"INPUT_USER_HERE","exp":"30","limit_quota":"100GB","limit_ip":"1"}' | jq -r '.detail.stdout // .stdout'
 
 # Trial Trojan WS
 curl -X POST "http://server_ip_or_domain/user_legend/trial-trojanws" \
 -H "Content-Type: application/json" \
--H "x-api-key: your_api_key" \
+-H "x-api-key: YOUR_API_KEY" \
 -d '{"exp":"1","limit_ip":"1"}' | jq -r '.detail.stdout // .stdout'
 
 # Menghapus Trojan WS
 curl -X DELETE "http://server_ip_or_domain/user_legend/del-trojanws" \
 -H "Content-Type: application/json" \
--H "x-api-key: your_api_key" \
+-H "x-api-key: YOUR_API_KEY" \
 -d '{"user":"INPUT_USER_HERE"}' | jq -r '.detail.stdout // .stdout'
 
 # Memperpanjang Trojan WS
 curl -X POST "http://server_ip_or_domain/user_legend/renew-trojanws" \
 -H "Content-Type: application/json" \
--H "x-api-key: your_api_key" \
+-H "x-api-key: YOUR_API_KEY" \
 -d '{"user":"INPUT_USER_HERE","exp":"30"}' | jq -r '.detail.stdout // .stdout'
 
 # Mendapatkan detail Trojan WS
 curl -X GET "http://server_ip_or_domain/user_legend/detail-trojanws" \
 -H "Content-Type: application/json" \
--H "x-api-key: your_api_key" \
+-H "x-api-key: YOUR_API_KEY" \
 -d '{"user":"INPUT_USER_HERE"}' | jq -r '.detail.stdout // .stdout'
 
 # Menambahkan VMESS gRPC
 curl -X POST "http://server_ip_or_domain/user_legend/add-vmessgrpc" \
 -H "Content-Type: application/json" \
--H "x-api-key: your_api_key" \
+-H "x-api-key: YOUR_API_KEY" \
 -d '{"user":"INPUT_USER_HERE","exp":"30","limit_quota":"100GB"}' | jq -r '.detail.stdout // .stdout'
 
 # Trial VMESS gRPC
 curl -X POST "http://server_ip_or_domain/user_legend/trial-vmessgrpc" \
 -H "Content-Type: application/json" \
--H "x-api-key: your_api_key" \
+-H "x-api-key: YOUR_API_KEY" \
 -d '{"exp":"1"}' | jq -r '.detail.stdout // .stdout'
 
 # Menghapus VMESS gRPC
 curl -X DELETE "http://server_ip_or_domain/user_legend/del-vmessgrpc" \
 -H "Content-Type: application/json" \
--H "x-api-key: your_api_key" \
+-H "x-api-key: YOUR_API_KEY" \
 -d '{"user":"INPUT_USER_HERE"}' | jq -r '.detail.stdout // .stdout'
 
 # Memperpanjang VMESS gRPC
 curl -X POST "http://server_ip_or_domain/user_legend/renew-vmessgrpc" \
 -H "Content-Type: application/json" \
--H "x-api-key: your_api_key" \
+-H "x-api-key: YOUR_API_KEY" \
 -d '{"user":"INPUT_USER_HERE","exp":"30"}' | jq -r '.detail.stdout // .stdout'
 
 # Mendapatkan detail VMESS gRPC
 curl -X GET "http://server_ip_or_domain/user_legend/detail-vmessgrpc" \
 -H "Content-Type: application/json" \
--H "x-api-key: your_api_key" \
+-H "x-api-key: YOUR_API_KEY" \
 -d '{"user":"INPUT_USER_HERE"}' | jq -r '.detail.stdout // .stdout'
 
 # Menambahkan VLESS gRPC
 curl -X POST "http://server_ip_or_domain/user_legend/add-vlessgrpc" \
 -H "Content-Type: application/json" \
--H "x-api-key: your_api_key" \
+-H "x-api-key: YOUR_API_KEY" \
 -d '{"user":"INPUT_USER_HERE","exp":"30","limit_quota":"100GB"}' | jq -r '.detail.stdout // .stdout'
 
 # Trial VLESS gRPC
 curl -X POST "http://server_ip_or_domain/user_legend/trial-vlessgrpc" \
 -H "Content-Type: application/json" \
--H "x-api-key: your_api_key" \
+-H "x-api-key: YOUR_API_KEY" \
 -d '{"exp":"1"}' | jq -r '.detail.stdout // .stdout'
 
 # Menghapus VLESS gRPC
 curl -X DELETE "http://server_ip_or_domain/user_legend/del-vlessgrpc" \
 -H "Content-Type: application/json" \
--H "x-api-key: your_api_key" \
+-H "x-api-key: YOUR_API_KEY" \
 -d '{"user":"INPUT_USER_HERE"}' | jq -r '.detail.stdout // .stdout'
 
 # Memperpanjang VLESS gRPC
 curl -X POST "http://server_ip_or_domain/user_legend/renew-vlessgrpc" \
 -H "Content-Type: application/json" \
--H "x-api-key: your_api_key" \
+-H "x-api-key: YOUR_API_KEY" \
 -d '{"user":"INPUT_USER_HERE","exp":"30"}' | jq -r '.detail.stdout // .stdout'
 
 # Mendapatkan detail VLESS gRPC
 curl -X GET "http://server_ip_or_domain/user_legend/detail-vlessgrpc" \
 -H "Content-Type: application/json" \
--H "x-api-key: your_api_key" \
+-H "x-api-key: YOUR_API_KEY" \
 -d '{"user":"INPUT_USER_HERE"}' | jq -r '.detail.stdout // .stdout'
 
 # Menambahkan Trojan gRPC
 curl -X POST "http://server_ip_or_domain/user_legend/add-trojangrpc" \
 -H "Content-Type: application/json" \
--H "x-api-key: your_api_key" \
+-H "x-api-key: YOUR_API_KEY" \
 -d '{"user":"INPUT_USER_HERE","exp":"30","limit_quota":"100GB"}' | jq -r '.detail.stdout // .stdout'
 
 # Trial Trojan gRPC
 curl -X POST "http://server_ip_or_domain/user_legend/trial-trojangrpc" \
 -H "Content-Type: application/json" \
--H "x-api-key: your_api_key" \
+-H "x-api-key: YOUR_API_KEY" \
 -d '{"exp":"1"}' | jq -r '.detail.stdout // .stdout'
 
 # Menghapus Trojan gRPC
 curl -X DELETE "http://server_ip_or_domain/user_legend/del-trojangrpc" \
 -H "Content-Type: application/json" \
--H "x-api-key: your_api_key" \
+-H "x-api-key: YOUR_API_KEY" \
 -d '{"user":"INPUT_USER_HERE"}' | jq -r '.detail.stdout // .stdout'
 
 # Memperpanjang Trojan gRPC
 curl -X POST "http://server_ip_or_domain/user_legend/renew-trojangrpc" \
 -H "Content-Type: application/json" \
--H "x-api-key: your_api_key" \
+-H "x-api-key: YOUR_API_KEY" \
 -d '{"user":"INPUT_USER_HERE","exp":"30"}' | jq -r '.detail.stdout // .stdout'
 
 # Mendapatkan detail Trojan gRPC
 curl -X GET "http://server_ip_or_domain/user_legend/detail-trojangrpc" \
 -H "Content-Type: application/json" \
--H "x-api-key: your_api_key" \
+-H "x-api-key: YOUR_API_KEY" \
 -d '{"user":"INPUT_USER_HERE"}' | jq -r '.detail.stdout // .stdout'
 
 # Cek Xray
