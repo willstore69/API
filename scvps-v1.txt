@@ -1,231 +1,257 @@
-# ADD SSH
-curl -sS -X POST http://your_ip_or_domain:5069/add-ssh \
--H "X-API-KEY: your_api_key" \
--H "Content-Type: application/json" \
--d '{"user":"your_user_vpn", "pass":"your_password_user", "exp":"your_exp_user", "limit_ip":"0"}' | jq -r '.stdout'
+# Add SSH User
+curl -X POST "http://server_ip_or_domain/user_legend/add-ssh" \
+     -H "x-api-key: YOUR_API_KEY" \
+     -H "Content-Type: application/json" \
+     -d '{"user": "INPUT_USER_HERE", "password": "INPUT_PASS_HERE", "limit_quota": "10GB", "exp": "30", "limit_ip": "1"}' | jq -r '.detail.stdout // .stdout'
 
-# TRIAL SSH
-curl -sS -X POST http://your_ip_or_domain:5069/add-ssh \
--H "X-API-KEY: your_api_key" \
--H "Content-Type: application/json" \
--d '{"exp":"your_exp_user", "limit_ip":"0"}' | jq -r '.stdout'
+# Trial SSH
+curl -X POST "http://server_ip_or_domain/user_legend/trial-ssh" \
+     -H "x-api-key: YOUR_API_KEY" \
+     -H "Content-Type: application/json" \
+     -d '{"exp": "1", "limit_ip": "1"}' | jq -r '.detail.stdout // .stdout'
 
-# RENEW SSH
-curl -sS -X POST http://your_ip_or_domain:5069/renew-ssh \
--H "X-API-KEY: your_api_key" \
--H "Content-Type: application/json" \
--d '{"user":"your_user_vpn", "exp":"your_exp_user"}' | jq -r '.stdout'
+# Renew SSH
+curl -X POST "http://server_ip_or_domain/user_legend/renew-ssh" \
+     -H "x-api-key: YOUR_API_KEY" \
+     -H "Content-Type: application/json" \
+     -d '{"user": "INPUT_USER_HERE", "exp": "30"}' | jq -r '.detail.stdout // .stdout'
 
-# DELETE SSH
-curl -sS -X DELETE http://your_ip_or_domain:5069/del-ssh \
--H "Content-Type: application/json" \
--H "X-API-KEY: your_api_key" \
--d '{"user": "your_user_vpn"}' | jq -r '.stdout'
+# Delete SSH
+curl -X DELETE "http://server_ip_or_domain/user_legend/del-ssh" \
+     -H "x-api-key: YOUR_API_KEY" \
+     -H "Content-Type: application/json" \
+     -d '{"user": "INPUT_USER_HERE"}' | jq -r '.detail.stdout // .stdout'
 
-# ADD L2TP
-curl -sS -X POST http://your_ip_or_domain:5069/add-l2tp \
--H "X-API-KEY: your_api_key" \
--H "Content-Type: application/json" \
--d '{"user":"your_user_vpn", "pass":"your_password_user", "exp":"your_exp_user"}' | jq -r '.stdout'
+# Lock SSH
+curl -X POST "http://server_ip_or_domain/user_legend/lock-ssh" \
+     -H "x-api-key: YOUR_API_KEY" \
+     -H "Content-Type: application/json" \
+     -d '{"user": "INPUT_USER_HERE"}' | jq -r '.detail.stdout // .stdout'
 
-# RENEW L2TP
-curl -sS -X POST http://your_ip_or_domain:5069/renew-l2tp \
--H "X-API-KEY: your_api_key" \
--H "Content-Type: application/json" \
--d '{"user":"your_user_vpn", "exp":"your_exp_user"}' | jq -r '.stdout'
+# Unlock SSH
+curl -X POST "http://server_ip_or_domain/user_legend/unlock-ssh" \
+     -H "x-api-key: YOUR_API_KEY" \
+     -H "Content-Type: application/json" \
+     -d '{"user": "INPUT_USER_HERE"}' | jq -r '.detail.stdout // .stdout'
 
-# DELETE L2TP
-curl -sS -X DELETE http://your_ip_or_domain:5069/del-l2tp \
--H "Content-Type: application/json" \
--H "X-API-KEY: your_api_key" \
--d '{"user": "will"}' | jq -r '.stdout'
+# Check SSH Users
+curl -X GET "http://server_ip_or_domain/user_legend/cek-ssh" \
+     -H "x-api-key: YOUR_API_KEY" | jq -r '.detail.stdout // .stdout'
 
-# CEK SSH LOGIN
-curl -sS -X GET http://your_ip_or_domain:5069/cek-ssh \
--H "Content-Type: application/json" \
--H "X-API-KEY: your_api_key" | jq -r '.stdout'
+# Add L2TP User
+curl -X POST "http://server_ip_or_domain/user_legend/add-l2tp" \
+     -H "x-api-key: YOUR_API_KEY" \
+     -H "Content-Type: application/json" \
+     -d '{"user": "INPUT_USER_HERE", "password": "INPUT_PASS_HERE", "exp": "30"}' | jq -r '.detail.stdout // .stdout'
 
-# ADD VMESS WS
-curl -sS -X POST http://your_ip_or_domain:5069/add-vmessws \
--H "X-API-KEY: your_api_key" \
--H "Content-Type: application/json" \
--d '{"user":"your_user_vpn", "exp":"your_exp_user", "limit_ip":"0"}' | jq -r '.stdout'
+# Renew L2TP User
+curl -X POST "http://server_ip_or_domain/user_legend/renew-l2tp" \
+     -H "x-api-key: YOUR_API_KEY" \
+     -H "Content-Type: application/json" \
+     -d '{"user": "INPUT_USER_HERE", "exp": "30"}' | jq -r '.detail.stdout // .stdout'
 
-# TRIAL VMESS WS
-curl -sS -X POST http://your_ip_or_domain:5069/trial-vmessws \
--H "X-API-KEY: your_api_key" \
--H "Content-Type: application/json" \
--d '{"exp":"your_exp_user", "limit_ip":"0"}' | jq -r '.stdout'
+# Delete L2TP User
+curl -X DELETE "http://server_ip_or_domain/user_legend/del-l2tp" \
+     -H "x-api-key: YOUR_API_KEY" \
+     -H "Content-Type: application/json" \
+     -d '{"user": "INPUT_USER_HERE"}' | jq -r '.detail.stdout // .stdout'
 
-# RENEW VMESS WS
-curl -sS -X POST http://your_ip_or_domain:5069/renew-vmessws \
--H "X-API-KEY: your_api_key" \
--H "Content-Type: application/json" \
--d '{"user":"your_user_vpn", "exp":"your_exp_user"}' | jq -r '.stdout'
+# Add VMess WebSocket User
+curl -X POST "http://server_ip_or_domain/user_legend/add-vmessws" \
+     -H "x-api-key: YOUR_API_KEY" \
+     -H "Content-Type: application/json" \
+     -d '{"user": "INPUT_USER_HERE", "exp": "30", "limit_quota": "10GB", "limit_ip": "1"}' | jq -r '.detail.stdout // .stdout'
 
-# DELETE VMESS WS
-curl -sS -X DELETE http://your_ip_or_domain:5069/del-vmessws \
--H "Content-Type: application/json" \
--H "X-API-KEY: your_api_key" \
--d '{"user": "your_user_vpn"}' | jq -r '.stdout'
+# Trial VMess WebSocket
+curl -X POST "http://server_ip_or_domain/user_legend/trial-vmessws" \
+     -H "x-api-key: YOUR_API_KEY" \
+     -H "Content-Type: application/json" \
+     -d '{"exp": "1", "limit_ip": "1"}' | jq -r '.detail.stdout // .stdout'
 
-# DETAIL VMESS WS
-curl -sS -X GET http://your_ip_or_domain:5069/detail-vmessws \
--H "Content-Type: application/json" \
--H "X-API-KEY: your_api_key" \
--d '{"user": "your_user_vpn"}' | jq -r '.stdout'
+# Renew VMess WebSocket User
+curl -X POST "http://server_ip_or_domain/user_legend/renew-vmessws" \
+     -H "x-api-key: YOUR_API_KEY" \
+     -H "Content-Type: application/json" \
+     -d '{"user": "INPUT_USER_HERE", "exp": "30"}' | jq -r '.detail.stdout // .stdout'
 
-# ADD VLESS WS
-curl -sS -X POST http://your_ip_or_domain:5069/add-vlessws \
--H "X-API-KEY: your_api_key" \
--H "Content-Type: application/json" \
--d '{"user":"your_user_vpn", "exp":"your_exp_user", "limit_ip":"0"}' | jq -r '.stdout'
+# Delete VMess WebSocket User
+curl -X DELETE "http://server_ip_or_domain/user_legend/del-vmessws" \
+     -H "x-api-key: YOUR_API_KEY" \
+     -H "Content-Type: application/json" \
+     -d '{"user": "INPUT_USER_HERE"}' | jq -r '.detail.stdout // .stdout'
 
-# TRIAL VLESS WS
-curl -sS -X POST http://your_ip_or_domain:5069/trial-vlessws \
--H "X-API-KEY: your_api_key" \
--H "Content-Type: application/json" \
--d '{"exp":"your_exp_user", "limit_ip":"0"}' | jq -r '.stdout'
+# Detail VMess WebSocket User
+curl -X GET "http://server_ip_or_domain/user_legend/detail-vmessws" \
+     -H "x-api-key: YOUR_API_KEY" \
+     -H "Content-Type: application/json" \
+     -d '{"user": "INPUT_USER_HERE"}' | jq -r '.detail.stdout // .stdout'
 
-# RENEW VLESS WS
-curl -sS -X POST http://your_ip_or_domain:5069/renew-vlessws \
--H "X-API-KEY: your_api_key" \
+# Menambahkan VLESS WS
+curl -X POST "http://server_ip_or_domain/user_legend/add-vlessws" \
 -H "Content-Type: application/json" \
--d '{"user":"your_user_vpn", "exp":"your_exp_user"}' | jq -r '.stdout'
+-H "x-api-key: your_api_key" \
+-d '{"user":"INPUT_USER_HERE","exp":"30","limit_quota":"100GB","limit_ip":"1"}' | jq -r '.detail.stdout // .stdout'
 
-# DELETE VLESS WS
-curl -sS -X DELETE http://your_ip_or_domain:5069/del-vlessws \
+# Trial VLESS WS
+curl -X POST "http://server_ip_or_domain/user_legend/trial-vlessws" \
 -H "Content-Type: application/json" \
--H "X-API-KEY: your_api_key" \
--d '{"user": "your_user_vpn"}' | jq -r '.stdout'
+-H "x-api-key: your_api_key" \
+-d '{"exp":"1","limit_ip":"1"}' | jq -r '.detail.stdout // .stdout'
 
-# DETAIL VLESS WS
-curl -sS -X GET http://your_ip_or_domain:5069/detail-vlessws \
+# Menghapus VLESS WS
+curl -X DELETE "http://server_ip_or_domain/user_legend/del-vlessws" \
 -H "Content-Type: application/json" \
--H "X-API-KEY: your_api_key" \
--d '{"user": "your_user_vpn"}' | jq -r '.stdout'
+-H "x-api-key: your_api_key" \
+-d '{"user":"INPUT_USER_HERE"}' | jq -r '.detail.stdout // .stdout'
 
-# ADD TROJAN WS
-curl -sS -X POST http://your_ip_or_domain:5069/add-trojanws \
--H "X-API-KEY: your_api_key" \
+# Memperpanjang VLESS WS
+curl -X POST "http://server_ip_or_domain/user_legend/renew-vlessws" \
 -H "Content-Type: application/json" \
--d '{"user":"your_user_vpn", "exp":"your_exp_user", "limit_ip":"0"}' | jq -r '.stdout'
+-H "x-api-key: your_api_key" \
+-d '{"user":"INPUT_USER_HERE","exp":"30"}' | jq -r '.detail.stdout // .stdout'
 
-# TRIAL TROJAN WS
-curl -sS -X POST http://your_ip_or_domain:5069/trial-trojanws \
--H "X-API-KEY: your_api_key" \
+# Mendapatkan detail VLESS WS
+curl -X GET "http://server_ip_or_domain/user_legend/detail-vlessws" \
 -H "Content-Type: application/json" \
--d '{"exp":"your_exp_user", "limit_ip":"0"}' | jq -r '.stdout'
+-H "x-api-key: your_api_key" \
+-d '{"user":"INPUT_USER_HERE"}' | jq -r '.detail.stdout // .stdout'
 
-# RENEW TROJAN WS
-curl -sS -X POST http://your_ip_or_domain:5069/renew-trojanws \
--H "X-API-KEY: your_api_key" \
+# Menambahkan Trojan WS
+curl -X POST "http://server_ip_or_domain/user_legend/add-trojanws" \
 -H "Content-Type: application/json" \
--d '{"user":"your_user_vpn", "exp":"your_exp_user"}' | jq -r '.stdout'
+-H "x-api-key: your_api_key" \
+-d '{"user":"INPUT_USER_HERE","exp":"30","limit_quota":"100GB","limit_ip":"1"}' | jq -r '.detail.stdout // .stdout'
 
-# DELETE TROJAN WS
-curl -sS -X DELETE http://your_ip_or_domain:5069/del-trojanws \
+# Trial Trojan WS
+curl -X POST "http://server_ip_or_domain/user_legend/trial-trojanws" \
 -H "Content-Type: application/json" \
--H "X-API-KEY: your_api_key" \
--d '{"user": "your_user_vpn"}' | jq -r '.stdout'
+-H "x-api-key: your_api_key" \
+-d '{"exp":"1","limit_ip":"1"}' | jq -r '.detail.stdout // .stdout'
 
-# DETAIL TROJAN WS
-curl -sS -X GET http://your_ip_or_domain:5069/detail-trojanws \
+# Menghapus Trojan WS
+curl -X DELETE "http://server_ip_or_domain/user_legend/del-trojanws" \
 -H "Content-Type: application/json" \
--H "X-API-KEY: your_api_key" \
--d '{"user": "your_user_vpn"}' | jq -r '.stdout'
+-H "x-api-key: your_api_key" \
+-d '{"user":"INPUT_USER_HERE"}' | jq -r '.detail.stdout // .stdout'
 
-# ADD VMESS GRPC
-curl -sS -X POST http://your_ip_or_domain:5069/add-vmessgrpc \
--H "X-API-KEY: your_api_key" \
+# Memperpanjang Trojan WS
+curl -X POST "http://server_ip_or_domain/user_legend/renew-trojanws" \
 -H "Content-Type: application/json" \
--d '{"user":"your_user_vpn", "exp":"your_exp_user", "limit_ip":"0"}' | jq -r '.stdout'
+-H "x-api-key: your_api_key" \
+-d '{"user":"INPUT_USER_HERE","exp":"30"}' | jq -r '.detail.stdout // .stdout'
 
-# TRIAL VMESS GRPC
-curl -sS -X POST http://your_ip_or_domain:5069/trial-vmessgrpc \
--H "X-API-KEY: your_api_key" \
+# Mendapatkan detail Trojan WS
+curl -X GET "http://server_ip_or_domain/user_legend/detail-trojanws" \
 -H "Content-Type: application/json" \
--d '{"exp":"your_exp_user", "limit_ip":"0"}' | jq -r '.stdout'
+-H "x-api-key: your_api_key" \
+-d '{"user":"INPUT_USER_HERE"}' | jq -r '.detail.stdout // .stdout'
 
-# RENEW VMESS GRPC
-curl -sS -X POST http://your_ip_or_domain:5069/renew-vmessgrpc \
--H "X-API-KEY: your_api_key" \
+# Menambahkan VMESS gRPC
+curl -X POST "http://server_ip_or_domain/user_legend/add-vmessgrpc" \
 -H "Content-Type: application/json" \
--d '{"user":"your_user_vpn", "exp":"your_exp_user"}' | jq -r '.stdout'
+-H "x-api-key: your_api_key" \
+-d '{"user":"INPUT_USER_HERE","exp":"30","limit_quota":"100GB"}' | jq -r '.detail.stdout // .stdout'
 
-# DELETE VMESS GRPC
-curl -sS -X DELETE http://your_ip_or_domain:5069/del-vmessgrpc \
+# Trial VMESS gRPC
+curl -X POST "http://server_ip_or_domain/user_legend/trial-vmessgrpc" \
 -H "Content-Type: application/json" \
--H "X-API-KEY: your_api_key" \
--d '{"user": "your_user_vpn"}' | jq -r '.stdout'
+-H "x-api-key: your_api_key" \
+-d '{"exp":"1"}' | jq -r '.detail.stdout // .stdout'
 
-# DETAIL VMESS GRPC
-curl -sS -X GET http://your_ip_or_domain:5069/detail-vmessgrpc \
+# Menghapus VMESS gRPC
+curl -X DELETE "http://server_ip_or_domain/user_legend/del-vmessgrpc" \
 -H "Content-Type: application/json" \
--H "X-API-KEY: your_api_key" \
--d '{"user": "your_user_vpn"}' | jq -r '.stdout'
+-H "x-api-key: your_api_key" \
+-d '{"user":"INPUT_USER_HERE"}' | jq -r '.detail.stdout // .stdout'
 
-# ADD VLESS GRPC
-curl -sS -X POST http://your_ip_or_domain:5069/add-vlessgrpc \
--H "X-API-KEY: your_api_key" \
+# Memperpanjang VMESS gRPC
+curl -X POST "http://server_ip_or_domain/user_legend/renew-vmessgrpc" \
 -H "Content-Type: application/json" \
--d '{"user":"your_user_vpn", "exp":"your_exp_user", "limit_ip":"0"}' | jq -r '.stdout'
+-H "x-api-key: your_api_key" \
+-d '{"user":"INPUT_USER_HERE","exp":"30"}' | jq -r '.detail.stdout // .stdout'
 
-# TRIAL VLESS GRPC
-curl -sS -X POST http://your_ip_or_domain:5069/trial-vlessgrpc \
--H "X-API-KEY: your_api_key" \
+# Mendapatkan detail VMESS gRPC
+curl -X GET "http://server_ip_or_domain/user_legend/detail-vmessgrpc" \
 -H "Content-Type: application/json" \
--d '{"exp":"your_exp_user", "limit_ip":"0"}' | jq -r '.stdout'
+-H "x-api-key: your_api_key" \
+-d '{"user":"INPUT_USER_HERE"}' | jq -r '.detail.stdout // .stdout'
 
-# RENEW VLESS GRPC
-curl -sS -X POST http://your_ip_or_domain:5069/renew-vlessgrpc \
--H "X-API-KEY: your_api_key" \
+# Menambahkan VLESS gRPC
+curl -X POST "http://server_ip_or_domain/user_legend/add-vlessgrpc" \
 -H "Content-Type: application/json" \
--d '{"user":"your_user_vpn", "exp":"your_exp_user"}' | jq -r '.stdout'
+-H "x-api-key: your_api_key" \
+-d '{"user":"INPUT_USER_HERE","exp":"30","limit_quota":"100GB"}' | jq -r '.detail.stdout // .stdout'
 
-# DELETE VLESS GRPC
-curl -sS -X DELETE http://your_ip_or_domain:5069/del-vlessgrpc \
+# Trial VLESS gRPC
+curl -X POST "http://server_ip_or_domain/user_legend/trial-vlessgrpc" \
 -H "Content-Type: application/json" \
--H "X-API-KEY: your_api_key" \
--d '{"user": "your_user_vpn"}' | jq -r '.stdout'
+-H "x-api-key: your_api_key" \
+-d '{"exp":"1"}' | jq -r '.detail.stdout // .stdout'
 
-# DETAIL VLESS GRPC
-curl -sS -X GET http://your_ip_or_domain:5069/detail-vlessgrpc \
+# Menghapus VLESS gRPC
+curl -X DELETE "http://server_ip_or_domain/user_legend/del-vlessgrpc" \
 -H "Content-Type: application/json" \
--H "X-API-KEY: your_api_key" \
--d '{"user": "your_user_vpn"}' | jq -r '.stdout'
+-H "x-api-key: your_api_key" \
+-d '{"user":"INPUT_USER_HERE"}' | jq -r '.detail.stdout // .stdout'
 
-# ADD TROJAN GRPC
-curl -sS -X POST http://your_ip_or_domain:5069/add-trojangrpc \
--H "X-API-KEY: your_api_key" \
+# Memperpanjang VLESS gRPC
+curl -X POST "http://server_ip_or_domain/user_legend/renew-vlessgrpc" \
 -H "Content-Type: application/json" \
--d '{"user":"your_user_vpn", "exp":"your_exp_user", "limit_ip":"0"}' | jq -r '.stdout'
+-H "x-api-key: your_api_key" \
+-d '{"user":"INPUT_USER_HERE","exp":"30"}' | jq -r '.detail.stdout // .stdout'
 
-# TRIAL TROJAN GRPC
-curl -sS -X POST http://your_ip_or_domain:5069/trial-trojangrpc \
--H "X-API-KEY: your_api_key" \
+# Mendapatkan detail VLESS gRPC
+curl -X GET "http://server_ip_or_domain/user_legend/detail-vlessgrpc" \
 -H "Content-Type: application/json" \
--d '{"exp":"your_exp_user", "limit_ip":"0"}' | jq -r '.stdout'
+-H "x-api-key: your_api_key" \
+-d '{"user":"INPUT_USER_HERE"}' | jq -r '.detail.stdout // .stdout'
 
-# RENEW TROJAN GRPC
-curl -sS -X POST http://your_ip_or_domain:5069/renew-trojangrpc \
--H "X-API-KEY: your_api_key" \
+# Menambahkan Trojan gRPC
+curl -X POST "http://server_ip_or_domain/user_legend/add-trojangrpc" \
 -H "Content-Type: application/json" \
--d '{"user":"your_user_vpn", "exp":"your_exp_user"}' | jq -r '.stdout'
+-H "x-api-key: your_api_key" \
+-d '{"user":"INPUT_USER_HERE","exp":"30","limit_quota":"100GB"}' | jq -r '.detail.stdout // .stdout'
 
-# DELETE TROJAN GRPC
-curl -sS -X DELETE http://your_ip_or_domain:5069/del-trojangrpc \
+# Trial Trojan gRPC
+curl -X POST "http://server_ip_or_domain/user_legend/trial-trojangrpc" \
 -H "Content-Type: application/json" \
--H "X-API-KEY: your_api_key" \
--d '{"user": "your_user_vpn"}' | jq -r '.stdout'
+-H "x-api-key: your_api_key" \
+-d '{"exp":"1"}' | jq -r '.detail.stdout // .stdout'
 
-# DETAIL TROJAN GRPC
-curl -sS -X GET http://your_ip_or_domain:5069/detail-trojangrpc \
+# Menghapus Trojan gRPC
+curl -X DELETE "http://server_ip_or_domain/user_legend/del-trojangrpc" \
 -H "Content-Type: application/json" \
--H "X-API-KEY: your_api_key" \
--d '{"user": "your_user_vpn"}' | jq -r '.stdout'
+-H "x-api-key: your_api_key" \
+-d '{"user":"INPUT_USER_HERE"}' | jq -r '.detail.stdout // .stdout'
 
-# CEK XRAY LOGIN
-curl -sS -X GET http://your_ip_or_domain:5069/cek-xray \
+# Memperpanjang Trojan gRPC
+curl -X POST "http://server_ip_or_domain/user_legend/renew-trojangrpc" \
 -H "Content-Type: application/json" \
--H "X-API-KEY: your_api_key" | jq -r '.stdout'
+-H "x-api-key: your_api_key" \
+-d '{"user":"INPUT_USER_HERE","exp":"30"}' | jq -r '.detail.stdout // .stdout'
+
+# Mendapatkan detail Trojan gRPC
+curl -X GET "http://server_ip_or_domain/user_legend/detail-trojangrpc" \
+-H "Content-Type: application/json" \
+-H "x-api-key: your_api_key" \
+-d '{"user":"INPUT_USER_HERE"}' | jq -r '.detail.stdout // .stdout'
+
+# Cek Xray
+curl -X GET "http://server_ip_or_domain/user_legend/cek-xray" \
+     -H "x-api-key: YOUR_API_KEY" | jq -r '.detail.stdout // .stdout'
+
+# Change UUID
+curl -X POST "http://server_ip_or_domain/user_legend/change-uuid" \
+     -H "Content-Type: application/json" \
+     -H "x-api-key: YOUR_API_KEY" \
+     -d '{"uuidold": "OLD_UUID", "uuidnew": "NEW_UUID"}' | jq -r '.detail.stdout // .stdout'
+
+# Lock Xray
+curl -X GET "http://server_ip_or_domain/user_legend/lock-xray" \
+     -H "x-api-key: YOUR_API_KEY" \
+     -d '{"user": "USERNAME"}' | jq -r '.detail.stdout // .stdout'
+
+# Unlock Xray
+curl -X GET "http://server_ip_or_domain/user_legend/unlock-xray" \
+     -H "x-api-key: YOUR_API_KEY" \
+     -d '{"user": "USERNAME"}' | jq -r '.detail.stdout // .stdout'
